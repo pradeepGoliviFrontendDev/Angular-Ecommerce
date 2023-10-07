@@ -1,0 +1,55 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Login Page</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+      <div style = "width: 100px;margin: auto;margin-bottom: 20px; margin-top: 10px;">
+        <a class="navbar-brand" href="#" style="display: flex;align-items: center;">
+            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="companylogo-1" alt="" 
+              width="40" height="36" class="d-inline-block align-text-top"><span style="font-weight: bolder;">indGo</span></a>
+      </div>
+      <p-toast class = "pc-hide"></p-toast>
+      <p-toast position="top-center" class = "mobile-hide"></p-toast>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            <div class="card">
+              <div class="card-body">
+                <form method="POST" action="#" role="form">
+                  <div class="mb-3">
+                    <h3  class="text-center">Sign in</h3>
+                    <p-messages  [(value)]="errorArray" [enableService]="false"></p-messages>
+                  </div>
+                  <div class="mb-3">
+                    <label for="signinEmail" class="form-label">Email or mobile phone number</label>
+                    <input id="signinEmail" [class]="userEmpty ? 'error': null" [(ngModel)] = "loginForm.username" pInputText class="ng-invalid ng-dirty"  [ngModelOptions]="{standalone: true}" type="email" maxlength="50" class="form-control">
+                    <small id="username-help" *ngIf = "userEmpty" class="p-error">Required</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="signinPassword" class="form-label">Password</label>
+                    <span class="float-end f14"><a href="#">Forgot your password?</a></span>
+                    <input id="signinPassword"  [class]="passwordEmpty ? 'error': null"[(ngModel)] = "loginForm.password"  [ngModelOptions]="{standalone: true}" type="password" maxlength="25" class="form-control">
+                    <small id="username-help" *ngIf = "passwordEmpty" class="p-error">Required</small>
+                  </div>
+                  <div class="mb-3">
+                    <button id="signinSubmit" type="submit" (click) = "onSubmit()" class="btn btn-success btn-block" style = "width: 100%">Sign in</button>
+                  </div>
+                  <div class="mb-3">
+                    <p class="form-group" routerLink = "/signup"><a class="btn btn-info btn-block"  style = "width: 100%; color: white;">Create an account</a></p>
+                    <p class="form-group f14">By signing in, you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
+    

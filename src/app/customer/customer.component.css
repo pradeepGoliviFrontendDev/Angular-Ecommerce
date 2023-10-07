@@ -1,0 +1,18 @@
+.f14{
+    font-size: 12px;
+}
+.error{
+    border: 1px solid red;
+}
+.mobile-hide{
+    display: none;
+}
+@media(max-width: 480px){
+    .pc-hide{
+        display: none;
+    }
+    .mobile-hide{
+        display: inline;
+    }
+
+}

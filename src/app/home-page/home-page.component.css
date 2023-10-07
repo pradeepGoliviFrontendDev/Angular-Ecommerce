@@ -1,0 +1,542 @@
+
+body {
+  background-color: #EEEEEE;
+  margin:0px;
+}
+
+
+
+.smalltext{
+  font-size: 12px; 
+}
+.navtext{
+  font-size: 14px; 
+  margin-top: -3px;
+}
+.fontHeight{
+  line-height: 1;
+  font-size:14px; 
+}
+.fontAdj{
+  font-size:14px;
+  font-weight: 600;
+}
+.marginBothSide{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.textWhite{
+  color : gray;
+
+}
+.carCustom{
+  position: relative;
+  margin-top:3px;
+}
+
+.m-adj{
+  margin-top: 128px;
+  
+}
+.slider-above{
+  width: 97.5%;
+  display: grid;
+  /* border: 1px solid red; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  
+  gap:20px;
+  margin: auto;
+  position: absolute;
+  top:50%;
+  left:16px;
+}
+
+.sub-container{
+/* width: 100%; */
+display: grid;
+grid-template-columns: 1fr 1fr ;
+
+margin: auto;
+}
+
+.container{
+  height: auto;
+  /* width: 100%; */
+  padding: 10px;
+
+}
+.child-div{
+  margin:auto;
+  width: 90%;
+  height: 90%;
+}
+.p-text{
+  font-size: 12px;
+  color : gray;
+  
+}
+
+.card-img{
+  height : 184px;
+  width: 140px;
+}
+.slide-container{
+
+  display:grid;
+  
+  grid-template-columns:repeat(5,1fr);
+  grid-template-rows: auto;
+  gap : 10px;
+  border: 1px solid blue; 
+  margin:auto; 
+  width: inherit;
+  width: 100%;
+}
+.sub-slide-container{
+  border:1px solid red;
+  height: auto;
+  width: auto;
+
+}
+.img-box{
+  height: 200px;
+  width:  100%;
+  border: 1px solid red;
+  display:flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+
+}
+.holding-sliding{
+  border: 1px solid red;
+  height:367px;
+  width:80%;
+  margin:auto;
+  background-color: white;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:20px;
+
+}
+.nav-css {
+  position: fixed;
+  top: 0;
+  width: 100%;
+/* From https://css.glass */
+/* From https://css.glass */
+/* From https://css.glass */
+
+background: rgba(255, 255, 255, 0.14);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.37);
+  z-index: 2;
+  height: 60px;
+}
+
+/* .content {
+  padding-top: 80px;
+} */
+
+
+.adj-left{
+  /* position: absolute;
+  left : -6.5%;
+  width: 85px ;
+  height: 90px;
+  top: 25%;
+  border-radius: 10px;
+  background-color: black;
+  opacity: 0.06; */
+}
+.adj-right{
+  /* position: absolute;
+  right : -6.5%;
+  width: 85px ;
+  height: 90px;
+  top: 25%;
+  border-radius: 10px;
+  background-color: black;
+  opacity: 0.06; */
+}
+.adj-right:hover{
+  opacity: 0.3;
+}
+.adj-left:hover{
+  opacity: 0.3;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+font-family: Open Sans;
+}
+
+section {
+width: 100%;
+display: inline-block;
+background: #333;
+height: 50vh;
+text-align: center;
+font-size: 22px;
+font-weight: 700;
+text-decoration: underline;
+}
+
+.footer-distributed{
+background: #666;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+width: 100%;
+text-align: left;
+font: bold 16px sans-serif;
+padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+display: inline-block;
+vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+color:  #ffffff;
+font: normal 36px 'Open Sans', cursive;
+margin: 0;
+}
+
+.footer-distributed h3 span{
+color:  lightseagreen;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+color:  #ffffff;
+margin: 20px 0 12px;
+padding: 0;
+}
+
+.footer-distributed .footer-links a{
+display:inline-block;
+line-height: 1.8;
+font-weight:400;
+text-decoration: none;
+color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+color:  #222;
+font-size: 14px;
+font-weight: normal;
+margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+width: 35%;
+}
+
+.footer-distributed .footer-center i{
+background-color:  #33383b;
+color: #ffffff;
+font-size: 25px;
+width: 38px;
+height: 38px;
+border-radius: 50%;
+text-align: center;
+line-height: 42px;
+margin: 10px 15px;
+vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+font-size: 17px;
+line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+display: inline-block;
+color: #ffffff;
+font-weight:400;
+vertical-align: middle;
+margin:0;
+}
+
+.footer-distributed .footer-center p span{
+display:block;
+font-weight: normal;
+font-size:14px;
+line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+color:  lightseagreen;
+text-decoration: none;;
+}
+
+.footer-distributed .footer-links a:before {
+content: "|";
+font-weight:300;
+font-size: 20px;
+left: 0;
+color: #fff;
+display: inline-block;
+padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+line-height: 20px;
+color:  #92999f;
+font-size: 13px;
+font-weight: normal;
+margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+display: block;
+color:  #ffffff;
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+display: inline-block;
+width: 35px;
+height: 35px;
+cursor: pointer;
+background-color:  #33383b;
+border-radius: 2px;
+
+font-size: 20px;
+color: #ffffff;
+text-align: center;
+line-height: 35px;
+
+margin-right: 3px;
+margin-bottom: 5px;
+}
+.cru-img-box{
+  height: 150px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.cru-img-box > img {
+  max-height: 100%;
+  max-width: 90%;
+  padding: 20px 0px 20px 0px;
+}
+.whole-card{
+  width: 93%;
+  background-color: white;
+  padding: 10px;
+  height: auto;
+}
+.cru-container{
+  margin-top: 20px;
+}
+.f12{
+  font-size: 12px;
+}
+.big-container{
+  width: 97.5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  
+  gap:20px;
+  margin: auto;
+  /* position: absolute;s
+  top:46%;
+  left:15px; */
+  /* margin-top: 20px; */
+ margin-top: 68px;
+
+}
+@media (max-width:  1401px) {
+  .big-container{
+    margin-top: 0px;
+    margin-top: 92px;
+    /* border: 1px solid red; */
+
+  }
+}
+
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+.footer-distributed{
+  font: bold 14px sans-serif;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.footer-distributed .footer-center i{
+  margin-left: 0;
+}
+
+}
+.margin-left-right{
+margin-left: 10px;
+margin-right : 10px;
+
+}
+
+
+.shift-right{
+display: flex;
+align-items: center;
+/* position: absolute;
+right: 0; */
+}
+.cont{
+width: 97.5%;
+border: 1px solid red;
+margin:auto;
+padding: 20px;
+margin-top: 20px;
+background-color: white;
+}
+.arr-adj-left{
+
+ 
+ background-color: #222;
+ height: 100px;
+ width: 40px;
+ top: 20%;
+ opacity: 0.1;
+}
+.arr-adj-right{
+background-color: #222;
+ height: 100px;
+ width: 40px;
+ top: 20%;
+ opacity: 0.1;
+}
+.arr-adj-left:hover{
+opacity: 0.2;
+}
+.arr-adj-right:hover{
+opacity: 0.2;
+}
+.s-color{
+color: white;
+/* From https://css.glass */
+background-color: rgba(0, 0, 0, 0.1);
+
+}
+.glass-bac{
+color:gray;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark-glass{
+background-color: rgba(0, 0, 0, 0.3);
+}
+.darker{
+background-color: rgba(0, 0, 0, 0.4);
+}
+.s-color:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.op{
+background-color: rgba(0, 0, 0, 0.1);
+outline: none;
+border: none;
+box-shadow: none;
+}
+.op:hover,.op:focus {
+background-color: rgba(0, 0, 0, 0.2);
+}
+.op::placeholder{
+color: white;
+}
+.op{
+color : white;
+}
+@media(max-width : 480px){
+  .big-container{
+    display: block;
+  }
+  .slider-above{
+    display: block;
+    width: 96%;
+    /* display: grid; */
+    /* border: 1px solid red; */
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto; */
+    
+    gap:20px;
+    margin: auto;
+    position: static;
+    margin-top: -80px;
+
+  }
+  .mobile-hide{
+    display: none;
+  }
+  .mobile-head{
+    font-size: 12px;
+  }
+  .heading{
+    font-size: 12px;
+  }
+  .carCustom{
+    margin-top: -11px;
+  }
+  .container{
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  }
+  body{
+    background-color: white;
+  }
+  
+}
+

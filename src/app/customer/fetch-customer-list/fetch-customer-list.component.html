@@ -1,0 +1,28 @@
+<h1 style="text-align:center;">Customer List </h1>
+<table class = "table table-stripad">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email Id</th>
+        <th>Mobile Number</th>
+        <th>Actions</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.mobileNumber }}</td>
+        <td>
+           
+            <button class="btn btn-primary"><a routerLink ="/updateCustomer/{{customer.customerId}}" style="color:white" (click) = getCustomerId(customer.customerId)>update</a></button>
+            <button (click) = "deleteCustomer(customer.customerId)" class = "btn btn-danger" style="margin-left: 10px;">Delete</button>
+            <a routerLink="/customer-details/{{customer.customerId}}"><button (click) = "customerDetails(customer.customerId)" class = "btn btn-primary" style="margin-left: 10px;">View</button></a>
+        </td>
+    </tr>
+  </tbody>
+
+
+</table>
+

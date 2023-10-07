@@ -1,0 +1,116 @@
+<!-- <h6>{{product.productId}}</h6> -->
+<div class="container">
+  <div class="img-box" routerLink="/product-details/{{product.productId}}">
+    <img src="{{product.mainImg}}">
+  </div>
+  <div class="content-box">
+    <div class="productTitle" routerLink="/product-details/{{product.productId}}">{{product.productName}}</div><br>
+    <div class="cont-ratings" (click)="op.toggle($event); progessBar();">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="ratings">
+          <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+            <ng-container *ngIf="i <= avgRate.singleStars">
+              <i class="bi bi-star-fill rating-color golden size"></i>
+            </ng-container>
+            <ng-container *ngIf="i === getRoundedUpSingleStars() && avgRate.halfStars !== 0">
+              <i class="bi bi-star-half rating-color golden size"></i>
+            </ng-container>
+            <ng-container *ngIf="i > avgRate.singleStars + avgRate.halfStars">
+              <i class="bi bi-star golden size"></i>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <p-overlayPanel #op [style]="{'width': '280px'}" [showCloseIcon]="true">
+        <ng-template pTemplate="content">
+          <div class = "panelRating">
+            <div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="ratings">
+                <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+                  <ng-container *ngIf="i <= avgRate.singleStars">
+                    <i class="bi bi-star-fill rating-color golden size"></i>
+                  </ng-container>
+                  <ng-container *ngIf="i === getRoundedUpSingleStars() && avgRate.halfStars !== 0">
+                    <i class="bi bi-star-half rating-color golden size"></i>
+                  </ng-container>
+                  <ng-container *ngIf="i > avgRate.singleStars + avgRate.halfStars">
+                    <i class="bi bi-star golden size"></i>
+                  </ng-container>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+            <div>
+              <h6 class = "h6">{{totalRating}} out of 5</h6>
+            </div>            
+          </div>
+          <p class ="p-review">{{product.review?.length ? product.review?.length : 0}} global rating</p>
+          <div>
+            <div class="progess-bar">
+              <div class="star-mar">
+                <div class="star">
+                  <div class="group">
+                    <span class="p-color f14">5 Star</span>
+                    <p-progressBar [value]="fivePer"></p-progressBar>
+                  </div>
+                </div>
+                <div class="star">
+                  <span class="p-color f14">4 Star</span>
+                  <p-progressBar [value]="fourPer"></p-progressBar>
+
+                </div>
+                <div class="star">
+                  <span class="p-color f14">3 Star</span>
+                  <p-progressBar [value]="threePer"></p-progressBar>
+
+                </div>
+                <div class="star">
+                  <span class="p-color f14">2 Star</span>
+                  <p-progressBar [value]="twoPer"></p-progressBar>
+
+                </div>
+                <div class="star">
+                  <span class="p-color f14">1 Star</span>
+                  <p-progressBar [value]="onePer"></p-progressBar>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+      <span class="reviewCount">{{product.review?.length ? product.review?.length : 0 }}</span>
+      <!-- <span class="pur-color">{{product.review.reviews.length}} rating</span> -->
+
+    </div>
+    <div class = "div_price_mrp">
+      <div class = "price_div">
+      <span class="price" routerLink="/product-details/{{product.productId}}">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
+            style="margin-right: -6px; margin-top: -10px;" class="bi bi-currency-rupee rupee" viewBox="0 0 16 16">
+            <path
+              d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+          </svg>
+        </span>
+        {{ +product.price - (+product.price * ((+product.discountPercentage) / 100)) | currency:'':'' }}
+      </span>
+      </div>
+      <div class="p-details" routerLink="/product-details/{{product.productId}}">
+        <span class="f12">M.R.P:
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" style="margin-right: -5px"
+            class="bi bi-currency-rupee full-rupee" viewBox="0 0 16 16">
+            <path
+              d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+          </svg>
+          {{product.price}} </span>
+        <span class="f13">({{product?.discountPercentage}}% off)</span><br>
+      </div>
+    </div>
+    <div class="pd">
+      <span class="f13">Get it by Today, 7 May</span><br>
+      <span class="f13">FREE Delivery by BindGo</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<!-- 
+<div class="product-container">
+    <h2 style="margin-left: 8%;">Order Details</h2>
+    <app-order *ngFor="let orderEl of orders"
+    [order] = "orderEl">
+     
+    </app-order>
+   
+</div> 
+
+  -->
+<app-header></app-header>
+<body>
+  <div class = "container">
+    <h3 class = "heading">Orders</h3>
+    <app-order *ngFor = "let order of orders" [order] ="order"></app-order>
+    <div class="flex justify-content-center">
+      <p-paginator (onPageChange)="onPageChange($event)" [rows]="pagination?.size" [totalRecords]="pagination?.totalElements" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+    </div>  
+  </div>
+</body>

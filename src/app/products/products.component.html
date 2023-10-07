@@ -1,0 +1,44 @@
+
+<!-- here start new project work -->
+<app-header [normalTheme]="normalTheme" (onAction) = "onAction($event)" (onBlur) = "blur($event)"></app-header>
+<body [class] = "blurFlag ? 'blur-content' : null">
+<div class="sortDiv">
+  <div class="parentDiv">
+    <div class="totalProduct">
+      <div *ngIf  = "name!= null && name != ''">
+      <!-- 1-16 of over {{pagination?.size}} results for {{ this.name }} -->
+    </div>
+    </div>
+    <div class="sortBy">
+      <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle size" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Sort By
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click) = "sortByprice(false)" >Price: Low to High</a></li>
+          <li><a class="dropdown-item" (click) = "sortByprice(true)">Price: High to Low</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='big-container' [class] = "blurFlag ? 'blur-content' : null">
+  <div class="side-div hide-mobile">
+    <h6>Filter</h6>
+    <div class="form-gap">
+      <input class="input1" [(ngModel)]="min" placeholder="₹ Min" id="priceInput" (input)="onPriceInput($event)" type="text">
+      <input class="input2" [(ngModel)]="max" placeholder="₹ Max" type="text">
+      <button class="btn go-btn" (click)="filter()">Go</button>
+    </div>
+
+  </div>
+  <div class="pro-container">
+    <app-product class="smallcon" *ngFor="let productEl of products" [product]="productEl">
+    </app-product>
+  </div>
+</div>
+<div class="flex justify-content-center">
+  <p-paginator (onPageChange)="onPageChange($event)" [rows]="pagination?.size" [totalRecords]="pagination?.totalElements" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+</div>
+</body>

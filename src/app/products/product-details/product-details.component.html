@@ -1,0 +1,541 @@
+<app-header #navbar ></app-header>
+
+<body>
+  <p-toast class = "mobile-hide"></p-toast>
+  <p-toast class = "pc-hide" position="top-center"></p-toast>
+  <div class="big-container">
+    <div class="image-container">
+      <div class = "mobile-hide">
+        <div class='images-cont' *ngFor="let img of product.imagePath; let i = index">
+          <div [class] = "i === index ? 'image-div viewSI' : 'image-div'" (click)="clickImg(img); index = i">
+            <img style="width: 100%;" src="{{img}}">
+          </div>
+
+        </div>
+      </div>
+      <div class="view-image mobile-hide">
+        <img style="width: 100%;" src="{{viewImage}}">
+      </div>
+
+      <div class = "pc-hide"style = "width: 100%;">
+      <p-carousel [value]="product.imagePath" [numVisible]="3" [numScroll]="1"  verticalViewPortHeight="360px" [responsiveOptions]="responsiveOptions">
+        <ng-template let-img pTemplate="item">
+                        <img style = "width: 100%;"src="{{img}}"[alt]="product.productName" class="product-image" />
+        </ng-template>
+    </p-carousel>
+  </div>
+    
+      
+
+
+    </div>
+    <div class='product-details-container'>
+      <div class="title">
+        {{product.productName}}
+      </div>
+      <!-- <span class="visit-brand"><a herf="#">Visit the {{product.brand}} Store</a></span> -->
+      <div class="cont-ratings">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="ratings">
+            <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+              <ng-container *ngIf="i <= avgRate.singleStars">
+                <i class="bi bi-star-fill rating-color golden"></i>
+              </ng-container>
+              <ng-container *ngIf="i === getRoundedUpSingleStars() && avgRate.halfStars !== 0">
+                <i class="bi bi-star-half rating-color golden"></i>
+              </ng-container>
+              <ng-container *ngIf="i > avgRate.singleStars + avgRate.halfStars">
+                <i class="bi bi-star golden"></i>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <!-- Example single danger button -->
+        <div class="btn-group">
+          <!-- <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button> -->
+          <!-- <div class="avgRating dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{product.review.avgRating}}</div> -->
+          <ul class="dropdown-menu">
+            <!-- <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+          </ul>
+        </div>
+        <span class="reviewCount">{{product.review?.length ? product.review?.length : 0 }}</span>
+        <div></div>
+      </div>
+      <hr class="line">
+      <div class="discount-price">
+        <span class="discount-per">-{{product.discountPercentage}}%</span>
+
+        <span class="price">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" style = "margin-right : -10px "
+              class="bi bi-currency-rupee rupee" viewBox="0 0 16 16">
+              <path
+                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+            </svg>
+          </span>
+          {{ product.price - (product.price * ((product.discountPercentage) / 100)) | currency:'':'' }}
+        </span>
+      </div>
+      <div class="MRP">
+        <span>M.R.P</span>
+        <span class="full-realPrice"><span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+              class="bi bi-currency-rupee full-rupee" viewBox="0 0 16 16">
+              <path
+                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+            </svg>
+          </span>{{product.price | currency: '': ''}}
+        </span>
+      </div>
+      <div class="nor-div">
+        <span class="nor-text">Inclusive of all taxes</span><br>
+        <span class="nor-text nor-adj">EMI starts at ₹3,440. No Cost EMI available</span>
+      </div>
+      <hr>
+      <div>
+
+      </div>
+      <!-- <button type="button" [class]="product?.productName?.length < 28 ? 'prevHori' : 'prevHori topMargin'" (click)="onPrevClick()" *ngIf="prevbutton">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button> -->
+      <div class="offers" #container>
+        <div class="gridscroll">
+
+          <div class="offer1">
+            <img class="offer1-img"
+              src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/trust_icon_free_shipping_81px._CB630870460_.png">
+            <p class="p-color p-offer1">Free Delivery</p>
+          </div>
+          <div class="offer1">
+            <img class="offer1-img"
+              src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png">
+            <p class="p-color p-offer1">7 days <br> Replacement</p>
+          </div>
+          <div class="offer1">
+            <img class="offer1-img"
+              src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-warranty._CB485935626_.png">
+            <p class="p-color p-offer1">Warranty <br> Policy</p>
+          </div>
+          <div class="offer1">
+            <img class="offer1-img"
+              src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-top-brand._CB617044271_.png">
+            <p class="p-color p-offer1">Top Brand</p>
+          </div>
+          <div class="offer1">
+            <img class="offer1-img"
+              src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-amazon-delivered._CB485933725_.png">
+            <p class="p-color p-offer1">Amazon <br> Delivered</p>
+          </div>
+          <div class="offer1">
+            <img class="offer1-img"
+              src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/Secure-payment._CB650126890_.png">
+            <p class="p-color p-offer1">Secure <br> transaction</p>
+          </div>
+
+        </div>
+      </div>
+      <!-- <button type="button" [class]="product?.productName?.length < 28 ? 'nextHori' : 'nextHori topMargin'" (click)='onNextClick()' *ngIf="nextbutton">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button> -->
+      <hr>
+      <div>
+        <table class="brand-det">
+          <tr class="product-details">
+            <th>Brand</th>
+            <!-- <td>{{product.brand}}</td> -->
+          </tr>
+          <tr class="product-details">
+            <th>Manufacturer</th>
+            <td>{{product.manufacturer}}</td>
+          </tr>
+          <tr class="product-details">
+            <th>Cellular Technology</th>
+            <td>5G</td>
+          </tr>
+        </table>
+        <hr>
+        <div class="about-item">
+          <h6>About this item</h6>
+          <ul>
+            <div *ngFor="let item of product.aboutItem; let i = index" class="item">
+              <li *ngIf="i < 3 || showMore">{{item}}</li>
+            </div>
+          </ul>
+          <div (click)="showMore= !showMore" style="cursor: pointer;">
+            <i class="bi bi-caret-down"></i>
+            <span class="p-color" style="font-size: 14px;">{{!showMore ? 'Show More' : 'Show Less'}}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+    <div class='addtoCart'>
+      <h6>Without Exchange</h6>
+      <div style = "display: flex; gap: 2px">
+        <span style=" color: #CC0C39!important;"><span style="font-size: 14px;width: 100%; display: flex; align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" style = "margin-right: -2px"
+              class="bi bi-currency-rupee" viewBox="0 0 16 16">
+              <path
+                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+            </svg>
+             {{ product.price - (product.price * ((product.discountPercentage) / 100)) | currency:'':'' }}</span>
+        </span>
+        <span></span>
+
+
+        <span class="full-realPrice"><span style="font-size: 14px; display: flex; align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" style="margin-top: 1px;"
+              class="bi bi-currency-rupee full-rupee" viewBox="0 0 16 16">
+              <path
+                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+            </svg>{{product.price  | currency:'':''}}
+            
+          </span>
+        </span>
+        <span></span>
+      </div>
+      <div style="line-height: 1.3;">
+        <span style="font-size: 14px;">FREE delivery <span style = "font-weight: 600;">{{dayOfDelivery}}</span> <span style="font-weight: bold;"></span>. Order within <span style="color : green"> {{hours}} hrs {{minutes}} mins.</span></span>
+      </div>  
+      <div class='loc-div'>
+        <i class="bi bi-geo-alt-fill"></i>
+        <span class="location f12">Deliver to {{product.admin?.username}} - {{product.admin?.address?.city}} {{product.admin?.address?.pincode}}</span>
+      </div>  
+      <div class="stock">
+        <span>
+          {{(product.quantity) > 0 ? 'In Stock' : "Out Of Stock"}}
+        </span>
+      </div>  
+      <div class="soldBy">
+        Sold by <span class="p-color">{{company}}</span> and <span class="p-color">Fulfilled by BindGo.</span>
+      </div>
+      <!-- <p-button label="Help" styleClass="p-button-help"></p-button> -->
+      <button class="btn btn-color" (click) = "addToCart(product.productId)">Add to Cart</button>
+      <img src='https://m.media-amazon.com/images/G/01/x-locale/checkout/truespc/secured-ssl._CB485936932_.png'
+        style="height: 14px" alt="lock">
+      <span class="p-color f14"> Secure transaction</span>
+    </div>
+  </div>
+<hr>
+<div class="cont mobile-hide" >
+  <h4 class="text-start mb-5 fw-bold" >Top Deal's</h4>
+  <div class="row" style="margin-top: -30px;">
+    <div class="col">
+      <div id="product-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="slide-container">
+              <div class="col-md-3 ">
+                <div class="card glass-bac" style="height: 250px; width: 230px;">
+                  <div class = "img-box"> 
+                  <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                    alt="Product 1">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                  </div>
+                </div> 
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 2</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-container">
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                  <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                    alt="Product 1">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                  </div>
+                </div> 
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 2</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-container">
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                  <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                    alt="Product 1">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 1</h5>
+                  </div>
+                </div> 
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 2</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="height: 250px; width: 230px;">
+                  <div class = "img-box">
+                    <img  style = "width: 150px"src="https://m.media-amazon.com/images/I/41YYQ+tFwCL._AC_SY200_.jpg" class="card-img-top"
+                      alt="Product 1">
+                    </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Product 3</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+          <a class="carousel-control-prev arr-adj-left" href="#product-carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next arr-adj-right" href="#product-carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="review-cont">
+    <div class="reviews-bar">
+      <h4>Customer reviews</h4>
+      <div class="cont-ratings" style="display: flex; align-items: center;">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="ratings">
+            <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+              <ng-container *ngIf="i <= avgRate.singleStars">
+                <i class="bi bi-star-fill rating-color golden size"></i>
+              </ng-container>
+              <ng-container *ngIf="i === getRoundedUpSingleStars() && avgRate.halfStars !== 0">
+                <i class="bi bi-star-half rating-color golden size"></i>
+              </ng-container>
+              <ng-container *ngIf="i > avgRate.singleStars + avgRate.halfStars">
+                <i class="bi bi-star golden size"></i>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <!-- Example single danger button -->
+        <div class="btn-group">
+          <!-- <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Action
+        </button> -->
+          <!-- <div style="display: flex; justify-content: center; height: 25px;margin-left: 10px;
+                font-weight: 400; font-size: 18px;"><span>{{product.review.avgRating}} out of 5</span></div> -->
+
+        </div>
+      </div>
+      <!-- <span class="f14" style="color : gray">{{product.review.reviews.length}} global ratings</span> -->
+      <div class="progess-bar">
+        <div class="star-mar">
+          <div>
+              <span class="p-color f14">5 Star</span>
+              <p-progressBar [value]="fivePer"></p-progressBar>
+          </div>
+          <div>
+            <span class="p-color f14">4 Star</span>
+            <p-progressBar [value]="fourPer" ></p-progressBar>
+
+          </div>
+          <div>
+            <span class="p-color f14">3 Star</span>
+            <p-progressBar [value]="threePer"></p-progressBar>
+
+          </div>
+          <div>
+            <span class="p-color f14">2 Star</span>
+            <p-progressBar [value]="twoPer"></p-progressBar>
+
+          </div>
+          <div>
+            <span class="p-color f14">1 Star</span>
+            <p-progressBar [value]="onePer"></p-progressBar>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+ 
+    
+    <div class="review" *ngIf = "reviews.length > 0">
+      <h4 style="font-size: 19px;">Top reviews from India</h4>
+      <div class = "review-detais" *ngFor = "let review of reviews">
+        <div style = "display: flex; gap: 5px">
+          <i class="pi pi-user" style="font-size: 1rem"></i>
+          <span>{{review.customer.username}}</span>
+        </div>
+        <div class="ratings">
+          <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+            <ng-container *ngIf="i <= avgRate.singleStars">
+              <i class="bi bi-star-fill rating-color golden "></i>
+            </ng-container>
+            <ng-container *ngIf="i === getRoundedUpSingleStars() && avgRate.halfStars !== 0">
+              <i class="bi bi-star-half rating-color golden "></i>
+            </ng-container>
+            <ng-container *ngIf="i > avgRate.singleStars + avgRate.halfStars">
+              <i class="bi bi-star golden "></i>
+            </ng-container>
+          </ng-container>
+          <span style = 'margin-left : 10px;'>{{review.headline}}</span>
+        </div>
+        <span style = "color: gray;" class = "f14">Reviewed in India on {{review.reviewDate | date: 'dd MMMM yyyy' }}</span>
+        <br>
+        <span style="color : rgb(194, 91, 6); font-weight: bold;" class = "f13">Verified Purchase</span>
+        <br>
+        <div class = "review-mess">
+        <span class = "f14">
+          {{review.reviewMessage}}
+        </span><br>
+        <div style = "color: gray;margin-top: 10px;">
+          <span  class = "f14">{{review?.countHelpful?.count}} people found this helpful</span>
+        </div>
+        <button class = "btn" style ="  height : 30px; margin-top: 10px;
+        font-size : 14px;box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; display: flex; 
+        justify-content: center; align-items: center;" (click) = "addHelpFull(review.reviewId)">Helpful</button>
+
+      </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  
+</body>

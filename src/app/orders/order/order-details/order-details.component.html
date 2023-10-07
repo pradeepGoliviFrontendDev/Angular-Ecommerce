@@ -1,0 +1,86 @@
+ <app-header></app-header>
+ <body>
+
+  <h3 class = "heading">Order Details</h3>
+  <div class = "head">
+    <span>{{order?.orderDate | date:'dd MMM yyyy'}}</span>
+    <span style = "margin-left : 10px; margin-right: 10px; color : rgb(200, 200, 200)">|</span>
+    <span>Order# 403-3414164-4353919</span>
+  </div>
+  <div class = "details f14">
+    <div class = "shipping">
+      <h6>Shipping Address</h6>
+      <div class = "address f14">
+        <span>{{order?.address?.name}}</span><br>
+        <span>{{order?.address?.address}}</span><br>
+        <span *ngIf = "order?.address?.buildingNo">Building No {{order?.address?.buildingNo}}</span><br *ngIf = "order?.address?.buildingNo">
+        <span>{{order?.address?.city}}, {{order?.address?.state}} {{order?.address?.pincode}}</span><br>
+        <span>{{order?.address?.country}}</span><br>
+      </div>
+      
+    </div>
+    <div class = "payment">
+      <h6>Payment Method</h6>
+      <span class = "f14">
+        Pay on Delivery (Cash/Card).
+         Cash on delivery (COD) available.
+          Card/Net banking acceptance subject
+           to device availability.
+          </span>
+
+    </div>
+    <div class = "order">
+      <h6>Order Summary</h6>
+      <table style="width: 100%">
+        <tr>
+          <td align="left">Item(s) Subtotal:</td>
+          <td align="right">₹{{order?.totalAmount}}</td>
+        </tr>
+        <tr>
+          <td align="left">Shipping:</td>
+          <td align="right">₹0.00</td>
+        </tr>
+        <tr>
+          <td align="left">Total:</td>
+          <td align="right">₹{{order.totalAmount}}</td>
+        </tr>
+        <tr>
+          <td align="left" class ="bolder">Grand Total:</td>
+          <td align="right">₹{{order.totalAmount}}</td>
+        </tr>
+      </table>
+      
+
+    </div>
+
+  </div>
+  <div class="middle">
+    <div class="delivered-data">
+      <h6>Delivered 21-Mar-2023</h6>
+    </div>
+    <div *ngFor = "let product of order?.products" class="products">
+      <div class="img-text">
+        <div class="img_box">
+          <img src="{{product.imagePath}}">
+        </div>
+        <div class="text_box f14">
+          <span class="product-name">{{product.productName}}</span><br>
+          <span class = "f12">Sold by: <span class = "product-name">Prime Expresso</span></span><br>
+          <span class="f13">Return window closed on 30-Jul-2022</span><br>
+          <!-- <p-button class = "btn" label="Buy It Again" style = "height: 10px;" styleClass="p-button-raised p-button-warning"></p-button> -->
+          <span class = "f13">₹{{product.price}}</span>
+          <button class="btn btnn" routerLink = "/product-details/{{product.productId}}">Buy It Again</button>
+        </div>
+      </div>
+      <div class="buttons">
+        <button routerLink = "/review"[queryParams]="{orderId : order.orderId, productId: product.productId, type: 'ADMIN' }" class="btn btn1">Leave seller feedback</button>
+        <button routerLink = "/review" [queryParams]="{orderId : order.orderId,productId: product.productId, type: 'PRODUCT' }"class="btn btn1">Write a product review</button>
+      </div>
+    </div>
+
+
+  </div>
+  
+
+ </body>
+ <app-footer></app-footer>

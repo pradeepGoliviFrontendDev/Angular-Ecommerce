@@ -1,0 +1,50 @@
+<div class="col-xs-12 col-md-6 col-md-offset-3">
+    <h3>Enter Product Data</h3>
+
+    <form action = ""(ngSubmit) = "onSubmit()">
+
+        <div class = "from-group">
+            <label for = "">Product Name</label>
+            <input type = "text" class = "form-control" id = "productName"
+            [(ngModel)] = "products.productName" name = "productName">
+        </div>
+        <div class = "from-group">
+            <label for = "">Image Link</label>
+            <input type = "text" class = "form-control" id = "imagePath"
+            [(ngModel)] = "products.imagePath" name = "imagePath">
+        </div>
+        <div class = "from-group">
+            <label for = "">Dimension</label>
+            <input type = "text" class = "form-control" id = "dimension"
+            [(ngModel)] = "products.dimension" name = "dimension">
+        </div>
+        <div class = "from-group">
+            <label for = "">Price</label>
+            <input type = "text" class = "form-control" id = "price"
+            [(ngModel)] = "products.price" name = "email">
+        </div>
+        <div class = "from-group">
+            <label for = "">Quantity</label>
+            <input type = "text" class = "form-control" id = "quantity"
+            [(ngModel)] = "products.quantity" name = "quantity">
+        </div>
+        <div class = "from-group">
+            <label for = "">CategoryName</label>
+            <input type = "text" class = "form-control" id = "categoryName"
+            [(ngModel)] = "products.categoryName" name = "categoryName">
+        </div>
+        <div class = "from-group">
+            <label for = "">specification</label>
+            <input type = "text" class = "form-control" id = "specification"
+            [(ngModel)] = "products.specification" name = "specification">
+        </div>
+        <div class = "from-group">
+            <label for = "">Manufacturer</label>
+            <input type = "text" class = "form-control" id = "manufacturer"
+            [(ngModel)] = "products.manufacturer" name = "manufacturer">
+        </div>
+      
+
+        <button class="btn btn-success" style="margin-top: 20px;" type="submit">Submit</button>
+    </form>
+</div>

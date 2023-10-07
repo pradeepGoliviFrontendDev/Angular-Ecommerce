@@ -1,0 +1,16 @@
+.container{
+   
+}
+.heading {
+    margin-left : 200px;
+    margin-top: 20px;
+    margin-bottom : 20px;
+
+}
+@media(max-width :480px){
+    .heading{
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+}

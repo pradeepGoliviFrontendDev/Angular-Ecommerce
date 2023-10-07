@@ -1,0 +1,28 @@
+<div class = "col-md-4 offset-md-10">
+    <h3>Update Product</h3>
+    <form (ngSubmit) = "onSubmit()">
+        <div class = "from-group">
+            <label for = "">Product Name</label>
+            <input type = "text" class = "form-control" id = "productName"
+            [(ngModel)] = "product.productName" name = "productName">
+        </div>
+        <div class = "from-group">
+            <label for = "">Quantity</label>
+            <input type = "text" class = "form-control" id = "quantity"
+            [(ngModel)] = "product.quantity" name = "quantity">
+        </div>
+        <div class = "from-group">
+            <label for = "">Dimension</label>
+            <input type = "text" class = "form-control" id = "dimension"
+            [(ngModel)] = "product.dimension" name = "dimension">
+        </div>
+        
+        <div class = "from-group">
+            <label for = "">Price</label>
+            <input type = "text" class = "form-control" id = "price"
+            [(ngModel)] = "product.price" name = "email">
+        </div>
+
+        <button class="btn btn-success" type="submit" style="margin: 10px">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,66 @@
+<!-- <div class="product" *ngFor="let product of order.products" >
+  <div class="product-image">
+    <img src="{{product.imagePath}}" alt="Product Image">
+  </div>
+  <div class="product-details"> 
+    <p class="product-manufacturer">Manufacturer: {{product.manufacturer}}</p>
+    <p class="product-dimension">Dimension: {{product.dimension}}</p>
+    <p class="product-price">Price: {{product.price}}</p>
+    <p class="product-dimension">Quantity: {{product.quantity}}</p>
+    <p class="product-price">Order Date: {{order.orderDate}}</p>
+    <a  (click) = "giveOrderId(order.orderId)"><h5>More Detials</h5></a>
+  </div>
+  
+</div> -->
+<div class="order">
+  <div class="header">
+    <div class="items">
+      <div class="headerItem1 line-hight-header">
+        <span class="f12">ORDER PLACED </span><br>
+        <span class="f14">{{order?.orderDate | date:'dd MMM yyyy'}}</span>
+      </div>
+      <div class="total line-hight-header mobile-hide">
+        <span class="f12">TOTAL </span><br>
+        <span class="f14">{{order?.totalAmount}}</span>
+      </div>
+      <div class="ship line-hight-header mobile-hide">
+        <span class="f12">Ship To </span><br>
+        <span class="f14">{{order?.customer?.username}} </span>
+      </div>
+    </div>
+    <div class="invoiceId line-hight-header">
+      <span class="f12">ORDER # 408-0618997-2858709 </span><br>
+      <a class="f14 view-color" routerLink = "/orders/{{order?.orderId}}">View order details</a>
+    </div>
+
+
+
+  </div>
+  <div class="middle">
+    <div class="delivered-data">
+      <h6>Delivered 21-Mar-2023</h6>
+    </div>
+    <div *ngFor = "let product of order?.products" class="products">
+      <div class="img-text">
+        <div class="img_box">
+          <img src="{{product.imagePath}}">
+        </div>
+        <div class="text_box f14">
+          <span class="product-name">{{product?.productName}}</span><br>
+          <span class="f13">Return window closed on 30-Jul-2022</span><br>
+          <!-- <p-button class = "btn" label="Buy It Again" style = "height: 10px;" styleClass="p-button-raised p-button-warning"></p-button> -->
+          <button class="btn btnn" routerLink = "/product-details/{{product.productId}}">Buy It Again</button>
+        </div>
+      </div>
+      <div class="buttons">
+        <button routerLink = "/review"[queryParams]="{orderId : order.orderId, productId: product.productId, type: 'ADMIN' }" class="btn btn1">Leave seller feedback</button>
+        <button routerLink = "/review" [queryParams]="{orderId : order.orderId,productId: product.productId, type: 'PRODUCT' }"class="btn btn1">Write a product review</button>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</div>

@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .heading{
+    margin-left : 28px;
+    margin-top: 20px;
+    margin-bottom: 10px ;
+
+  }
+  .heading>h3{
+    font-weight: 400;
+  }
+
+  .box {
+    flex-basis: 33.33%;
+    padding: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+  .point {
+    cursor: pointer;
+  }
+  
+  .address-label {
+    border: 2px dashed #c5c5c5;
+    padding: 10px;
+    height:280px;
+    width: 95%;
+    border-radius: 10px;
+    display: flex;      
+    justify-content: center;
+    align-items: center;
+
+
+  }
+ .fw{
+     font-weight: 600;
+     color: rgb(91, 89, 89);
+     margin-top: -30px;
+ } 
+ .in-add{
+    margin-top: -20px;
+ }
+  .custom-icon {
+    font-size: 80px; 
+    color : rgb(230, 226, 226);
+    display: block;
+    text-align: center;
+}
+
+  .address-info {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+    margin-bottom: 10px;
+    height: 266px;  
+    width: 95%;
+    border-radius: 10px;
+    min-height:240px;
+    position: relative;
+  }
+  .name{
+    font-weight: 600;
+  }
+  .pad{
+    padding: 0px 20px 0px 20px;
+    font-size: 14px;
+  }
+  .default{
+    display: flex;
+    align-items:center ;
+    margin-right: 10px;
+  }
+  .default-div{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: -10px;
+  }
+  .actions{
+    display: flex;
+    padding: 0px 20px 0px 20px;
+    font-size: 14px;
+    color: #007185;
+    position: absolute;
+    bottom: 5%;
+  }
+  .edit{
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .remove{
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .default{
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .pading{
+    margin-top: 30px;
+  }
+  @media (max-width: 480px) {
+  .container{
+    display: inline;
+    width:96%;
+  }
+  .heading{
+    margin-top: -15px;
+    margin-bottom:  -20px;
+    
+  }
+
+  }

@@ -1,0 +1,151 @@
+<body>
+  <app-header #navbar></app-header>
+  <div id="twocontainer">
+    <div class="item-parent-div">
+      <div id="first_box">
+        <h1>MY BAG</h1>
+        <p>Items are reserved for 60 mintues</p>
+      </div>
+
+
+      <div id='item_append' *ngFor="let product of products">
+        <div id="inner_box">
+          <div id="img_box">
+            <img src="{{product.imagePath}}">
+          </div>
+          <div id="text_box">
+            <p-button icon="pi pi-times" id='delete_box' (click)="deleteProduct(product.productId); ngOnInit()"  
+              styleClass="p-button-rounded p-button-danger p-button-text"></p-button>
+            <!-- <button type="button" id = 'delete_box' class="btn-close btn-danger" style = "color: red" aria-label="Close"></button> -->
+            <!-- <div id = 'delete_box'>x</div> -->
+            <div style="font-size: 18px;">{{product.productName}}</div>
+            <br>
+            <div style="margin-top: -20px;display: flex">
+              <span><span style="font-size: 15px;width: 100%; display: flex; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                    style="margin-right: -2px" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path
+                      d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+                  </svg>
+                  {{ product.price - (product.price * ((product.discountPercentage) / 100)) | currency:'':'' }}</span>
+              </span>
+              <span style="margin-left : 10px ; margin-right : 10px;">|</span>
+              <span *ngIf = "inStock" style="color : green;">In Stock</span>
+              <span *ngIf = "!inStock" style="color : red">Out of Stock</span>
+            </div>
+            <div>
+
+              <br>
+              <div style="margin-top: -20px;margin-bottom: 10px;">
+                <span style="font-weight: 600;">Color: </span>
+                <span>Blue</span>
+              </div>
+            </div>
+
+
+            <div id="divQ">
+              <button class="incdc" [disabled] = "!inStock" (click)="product.quantity > 0 ? incQuan(product) : ''">+</button>
+              <p id="qunt">{{product.quantity}}</p>
+              <button class="incdc" (click)="product.quantity > 1 ? dscQuan(product) : ''">-</button>
+            </div>
+          </div>
+
+        </div>
+        <div style="height: 1px;border: 1px solid ; width: 80%; visibility: hidden;">
+          <hr>
+        </div>
+
+      </div>
+      <div id = "mobile-hide">
+      <div id="last_box">
+        <h6>SUB-TOTAL<span id='subpricebelow'></span></h6>
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+          style="margin-right: -11px; margin-top: -5px;" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+          <path
+            d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+        </svg>
+        <h6 style="padding : 10px; font-weight: 400; ">{{totalWithDiscount | currency:'':''}} </h6>
+      </div>
+    </div>
+  </div>
+
+    <div id="total_container">
+      <div id="totalcontainer">
+        <h3 id = "mobile-hide"style="margin: 10px ">TOTAL</h3>
+        <hr>
+        <div class="subtotal"
+          style="font-size: 16px; display:flex; align-items: center; justify-content: space-between;margin-button:50px;font-size : 14px;">
+          <span>Sub-Total</span>
+          <div class="sub-total">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+              style="margin-right: -11px;" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+              <path
+                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+            </svg>
+            <span style="padding : 10px; font-weight: 400; ">{{total | currency:'':''}} </span>
+          </div>
+        </div>
+        <div class="subtotal"
+          style="font-size: 16px; display:flex;align-items: center; justify-content: space-between;margin-button:50px;font-size : 14px;">
+          <span>Discount</span>
+          <div class="discount">
+            <span style="padding : 10px; font-weight: 400;">-{{discountTotal | currency:'':''}} </span>
+          </div>
+        </div>
+        <div class="subtotal"
+          style="font-size: 16px; display:flex;align-items: center; justify-content: space-between;margin-button:50px;font-size : 14px;">
+          <span>Estimated Amount</span>
+          <div class="estimated">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+              style="margin-right: -11px;" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+              <path
+                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+            </svg>
+            <span style="padding : 10px; font-weight: 400;">{{totalWithDiscount | currency:'':''}} </span>
+          </div>
+        </div>
+        <button type="button" style="width: 100%; margin-top: 20px;"(click) = "addresses()" class="btn btn-success">Order Now</button>
+
+        <div id="acceptpay">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPObq3geMYUM5tBp5bYZ4ellfEFNHuYVk-E4xVXTFOC8m2iNyjRIPwpwaKAhSt7dF9kA&usqp=CAU" />
+
+        </div>
+        <p id=paradis>Got a discount code? Add it in the next step</p>
+      </div>
+
+    </div>
+  </div>
+  <app-footer class = "mobile-hide"></app-footer>
+</body>
+<p-dialog [(visible)]="visible" [modal]="true" [baseZIndex]="10000" [resizable]="true" [draggable]="true" [closeOnEscape]="true">
+  <ng-template pTemplate="header">
+    <div class="custom-dialog-header p-header">
+      <h4>Your Default Address</h4>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div class="custom-dialog-body">
+        <div class="pad">
+          <div>
+          <span class="name">{{address?.name}}</span><br>
+          <span>Flat no - {{address?.buildingNo}}</span><br>
+          <span>{{address?.address}}</span><br>
+          <span>{{address?.city}}, {{address?.state}} {{address?.pincode}}</span><br>
+          <span>{{address?.country}}</span><br>
+          <span>Phone number: {{address.mobileNumber}}</span><br>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="custom-dialog-footer buttons">
+      <button type="button" class="btn chn-btnn" routerLink = "/address">Change Address</button>
+      <button type="button" class="btn btnn" (click) = "order()">Processed</button>
+    </div>
+  </ng-template>
+</p-dialog>
+<p-toast class = "pc-hide"></p-toast>
+<p-toast position="top-center" class = "mobile-hide"></p-toast>
+<p-confirmDialog></p-confirmDialog>
+

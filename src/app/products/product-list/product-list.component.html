@@ -1,0 +1,28 @@
+<h1 style="text-align:center;">ProductList</h1>
+<table class = "table table-stripad">
+  <thead>
+    <tr>
+        <th>Product Name</th>
+        <th>Manufacturer</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+        <td>{{ product.productName }}</td>
+        <td>{{ product.manufacturer }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>
+           
+         <button class="btn btn-primary"><a routerLink ="/updateProduct/{{product.productId}}" style="color:white">update</a></button>
+         <button (click) = "deleteProduct(product.productId)" class = "btn btn-danger" style="margin-left: 10px;">Delete</button>
+        </td>
+    </tr>
+  </tbody>
+
+
+</table>

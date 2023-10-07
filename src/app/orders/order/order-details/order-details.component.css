@@ -1,0 +1,148 @@
+   body{
+    width: 75%;
+    margin: auto;
+   }
+   .head{
+      display: flex;
+      font-size: 14px;
+      margin-bottom: 10px;
+   }
+   .details{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    padding: 15px;
+    gap: 20px;
+    justify-content: space-between
+   }
+   .shipping{
+    /* border: 1px solid red; */
+    width: 30%;
+   }
+   .payment{
+    /* border: 1px solid red; */
+    width: 38%;
+   }
+   .order{
+    /* border: 1px solid red; */
+    width: 30%;
+   }
+   .f14{
+    font-size: 14px;
+    font-weight: 400;
+   }
+   .bolder{
+    font-weight: 500;
+   }
+   .items{
+    display: flex;
+    border: 1px solid red;
+    width: 50%;
+    justify-content: space-between;
+  }
+  .f14{
+    font-size: 14px;
+  }
+  .f13{
+    font-size: 13px;
+  }
+  .f12{
+    font-size: 12px;
+  }
+  .line-hight-header{
+    line-height: 1.2;
+  }
+  .view-color{
+    color: #007185;
+    text-decoration: none;
+  }
+  .view-color:hover{
+   text-decoration: underline;
+   cursor: pointer;
+  }
+  .middle{
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  }
+  .products{
+    display: flex;
+    padding: 10px 10px 10px 0px;
+    justify-content: space-between;
+    
+  }
+  .img_box{
+    margin-top: 20px;
+    max-width: 140px;
+    max-height: 100px;
+  }
+  .img_box > img{
+    max-width: 120px;
+    max-height: 80px;
+  }
+  .text_box{
+    line-height: 1.2;
+    padding: 10px;
+  }
+  .product-name{
+    color: #007185;
+  }
+  .btnn{
+    height: 30px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    background-color: rgb(255, 217, 4); 
+    padding: 10px;
+    margin-top: 5px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  }
+  .btnn:hover{
+    background-color: rgb(255, 217, 4); 
+  }
+  .buttons{
+    width: 30%;
+  
+    
+  }
+  .btn1{
+    height: 30px;
+    display: block;
+    margin: auto;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    width:200px;
+    margin-bottom: 10px ;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    
+  }
+  .img-text{
+    display: flex;
+    gap: 10px;
+  }
+  
+  @media(max-width: 480px){
+    body{
+      width: 96%;
+    }
+    .details{
+      padding: 10px;
+    }
+    .products{
+      display: inline;
+    }
+    .buttons{
+      margin:auto;
+    }
+    .heading{
+      margin-bottom: 15px;
+    }
+  }
+   

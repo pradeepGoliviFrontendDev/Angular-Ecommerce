@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class = "container">
+<h4 class = "heading">Create Review</h4>
+<div style="display: flex; gap: 15px">
+    <div class = "img-card">
+    <img [src] = "product.imagePath">
+    </div>
+    <p style="margin-top: 5px;">{{product.productName}}</p>
+</div>
+<hr>
+<h5>Overall rating</h5>
+
+<p-rating [(ngModel)]="review.rating" [cancel]="false" class="custom-rating"></p-rating>
+<hr>
+<h5>Add a headline</h5>
+<input pInputText class = "review" type="text" placeholder="What's most important to know?" [(ngModel)]="review.headline" />
+<hr>
+<h5>Add a written review</h5>
+<textarea class="review" placeHolder = "What did you like or dislike? What did you use this product for?" rows="5"[(ngModel)]="review.reviewMessage"  required></textarea>
+<hr>
+<button class="btn btnn" (click) = "addReview()">Submit</button>
+
+</div>
+<app-footer></app-footer>
+

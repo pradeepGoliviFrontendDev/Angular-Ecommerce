@@ -1,0 +1,257 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<body>
+<app-header [normalTheme] = "normalTheme"></app-header>
+<button class = "mobile-hide btn btn-primary mob" style = "position: absolute; top: 
+  100px;z-index: 100;right: 3px; border-radius: 0% 50% 0% 50%;"
+  (click) = "getAndSetTheme(); setTheme(!getAndSetTheme())">
+  Theme {{getAndSetTheme()}}</button>
+
+    <div id="carouselExampleControls" class="carousel slide carCustom" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img 
+            src="../../assets/image1.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../assets/image2.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../assets/image3.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" style="bottom:40%" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" style="bottom:40%" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="slider-above">
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class = "heading" style="font-size: 16px;">Up to 70% off | Trending new launches</header>
+        <div class="sub-container">
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+              src="../../assets/americanTourister.jpg">
+            <p class="p-text">Up to 50% off | American Tourister</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/bikeaccesories.jpg">
+            <p class="p-text">Up to 60% off | Bike Accesories</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/boxing.jpg">
+            <p class="p-text">Starting ₹699 | Punching bags</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/Jewellery.jpg">
+            <p class="p-text">Up to 60% off | Jewellery</p>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class = "heading" style="font-size: 16px;" >Top picks | Luggage, watches & more</header>
+        <div class="sub-container ">
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/Safari.jpg">
+            <p class="p-text">
+              Up to 60% off | Safari</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/tovel.jpg">
+            <p class="p-text">
+              Starting ₹699| Punching bags</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/watches_smartwatches.jpg">
+            <p class="p-text">
+              Up to 60% off | Watches & smartwatches</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/baby_essentials.jpg">
+            <p class="p-text">
+              Up to 70% off | Baby essentials</p>
+          </div>
+        </div>
+      </div>
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class = "heading" style="font-size: 16px;" >Home appliances | Up to 55% off</header>
+        <div class="sub-container">
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/air_conditions.jpg">            
+            <p class="p-text">Air conditioners</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/refrigerators.jpg">            
+            <p class="p-text">Refrigerators</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/microwaves.jpg">            
+            <p class="p-text">Microwaves</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/washing_machines.jpg">            
+            <p class="p-text">Washing machines</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class = "heading" style="font-size: 16px;" >Starting ₹99 | All your home improvement needs</header>
+        <div class="sub-container">
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/bathroomhandware.jpg">            
+            <p class="p-text">Bathroom handware & accessories</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/spinwipts.jpg">            
+            <p class="p-text">Spin impos, wipes & more
+            </p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/hammers_screwdrivers.jpg">            
+            <p class="p-text">Hammers, screwdrivers & more</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/extension_boards.jpg">            
+            <p class="p-text">Extension boards, plugs & more
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="big-container m-adj mobile-hide">
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class="heading" style="font-size: 16px;" >Home appliances | Up to 55% off</header>
+        <div>
+          <img style="width:100%;"
+          src="../../assets/leptop.jpg">            
+        </div>
+  
+      </div>
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class="heading" style="font-size: 16px;" >Home appliances | Up to 55% off</header>
+        <div class="sub-container">
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/baby_associes.jpg">            
+            <p class="p-text">
+              Starting ₹179 | Diapers & wipes</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img43.jpg">            
+            <p class="p-text">Starting ₹229 | Baby bath tubs & play gym</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img44.jpg">            
+            <p class="p-text">Starting ₹99 | Soft toys</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img45.jpg">            
+            <p class="p-text">Minimum 50% off | Scooters & ride-ons</p>
+          </div>
+        </div>
+      </div>
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class="heading" style="font-size: 16px;" >Starting ₹99 | All your home improvement needs</header>
+        <div class="sub-container">
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img46.jpg">            
+            <p class="p-text">Spin impos, wipes & more
+            </p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/helmet.jpg">            
+            <p class="p-text">Helmet</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/car_cleaning_assories.jpg">            
+            <p class="p-text">Car Cleaning Viper</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/walet.jpg">            
+            <p class="p-text">Wallet</p>
+          </div>
+        </div>
+      </div>
+      <div class="container glass-bac" [ngClass] = "{'theme-container': getAndSetTheme()}">
+        <header class="heading" style="font-size: 16px;" >Women fashion | Up to 55% off</header>
+        <div class="sub-container">
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img38.jpg">            
+            <p class="p-text">Women's Clothing</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img39.jpg">            
+            <p class="p-text">Footwear+handbags</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img40.jpg">            
+            <p class="p-text">watches</p>
+          </div>
+          <div class="child-div" routerLink = "/products">
+            <img style="width: 100%; height: auto"
+            src="../../assets/img41.jpg">            
+            <p class="p-text">Fashion Jewellery</p>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <div class = "cru-container">
+    <p-carousel [value]="products" [numVisible]="4" [numScroll]="4" [circular]="false" [responsiveOptions]="responsiveOptions">
+      
+      <ng-template let-product pTemplate="item">
+          <div class="text-center whole-card" routerLink = "product-details/{{product.productId}}">
+              <div class="mb-3 cru-img-box">
+                  <img style="height: 100px;" src="{{product.mainImg}}" [alt]="product.name" class="w-6 shadow-2" />
+              </div>
+              <div>
+                  <p class="mb-1 f12">{{ product.productName }}</p>
+                  <p class="mt-0 mb-3 f12">{{ '₹' + product.price }}</p>
+                  <div class="car-buttons mt-5">
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-carousel>
+</div>
+    <app-footer></app-footer>
+  
+    
+

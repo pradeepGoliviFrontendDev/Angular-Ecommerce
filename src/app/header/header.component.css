@@ -1,0 +1,358 @@
+body {
+  background-size: cover;
+  /* or "contain" */
+  background-position: center center;
+  /* or any other position */
+  background-attachment: fixed;
+  /* ensures the background image stays in place */
+  height: 60px;
+  position: relative;
+}
+
+.cartProducts {
+  position: absolute;
+  top: 5px;
+  right: 59px;
+  font-weight: 600;
+  color: rgb(182, 12, 255)
+}
+
+.cartImg {
+  position: relative;
+}
+
+.product-item {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+  padding: 0px 0px 0px 10px;
+
+}
+
+.image-box {
+  width: 60x;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.image-box>img {
+   max-width: 50px;
+   max-height: 30px;
+}
+
+.product-item>p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.searchbox {
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+.nameprice {
+  line-height: 0.1;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.Accountfont {
+  font-size: 15px;
+}
+
+.list {
+  font-size: 12px;
+  line-height: 0.7;
+}
+
+/* home css */
+
+.smalltext {
+  font-size: 12px;
+}
+
+.navtext {
+  font-size: 14px;
+  margin-top: -3px;
+}
+
+.fontHeight {
+  line-height: 1;
+  font-size: 14px;
+}
+
+.fontAdj {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.marginBothSide {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.textWhite {
+  color: gray;
+
+}
+
+.nav-css {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* From https://css.glass */
+  /* From https://css.glass */
+  /* From https://css.glass */
+
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.37);
+  z-index: 2;
+  height: 60px;
+}
+
+.margin-left-right {
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+
+.shift-right {
+  display: flex;
+  align-items: center;
+  /* position: absolute;
+right: 0; */
+}
+
+.cont {
+  width: 97.5%;
+  border: 1px solid red;
+  margin: auto;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.arr-adj-left {
+  background-color: #222;
+  height: 100px;
+  width: 40px;
+  top: 20%;
+  opacity: 0.1;
+}
+
+.arr-adj-right {
+  background-color: #222;
+  height: 100px;
+  width: 40px;
+  top: 20%;
+  opacity: 0.1;
+}
+
+.arr-adj-left:hover {
+  opacity: 0.2;
+}
+
+.arr-adj-right:hover {
+  opacity: 0.2;
+}
+
+.s-color {
+  color: white;
+  /* From https://css.glass */
+  background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+/* .glass-bac {
+  color: white; */
+  /* From https://css.glass */
+  /* background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+} */
+
+.dark-glass {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.darker {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.s-color:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.op {
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.op:hover,
+.op:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.op::placeholder {
+  color: white;
+}
+
+.op {
+  color: white;
+}
+
+.cart-margin {
+  margin-left: -20px
+}
+
+.hide-on-large-screen{
+  display: none;
+}
+
+@media (max-width: 480px) {
+
+  body {
+    background-attachment: fixed;
+    height: 60px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .hide-on-large-screen{
+    display: block;
+  }
+  .index{
+    z-index: 10;
+  }
+  .searchbox {
+    position: absolute;
+    top: 260px;
+    z-index: 2;
+    background-color: white;
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px; */ 
+  }
+
+  .cartProducts {}
+
+  .cartImg {}
+
+  .product-item {}
+
+  .image-box {}
+
+  .image-box>img {}
+
+  .product-item>p {}
+
+  .searchbox {}
+
+  .Accountfont {}
+
+  .list {}
+
+  /* home css */
+
+  .smalltext {}
+
+  .navtext {}
+
+  .fontHeight {}
+
+  .fontAdj {}
+
+  .marginBothSide {}
+
+  .textWhite {}
+
+  .nav-css {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
+    z-index: 2;
+    height: 60px;
+  }
+  .margin-left-right {}
+
+
+  .shift-right {}
+
+  .cont {}
+
+  .arr-adj-left {}
+
+  .arr-adj-right {}
+
+  .arr-adj-left:hover {}
+
+  .arr-adj-right:hover {}
+
+  .s-color {}
+
+  .dropdown-menu {
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
+  }
+  .pad{
+    padding: 0px 0px 0px 10px;
+  }
+  .pro-css{
+    height: 33px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    /* display: flex;
+    align-items: center; */
+    overflow: hidden;
+  }
+
+  .dark-glass {}
+
+  .darker {}
+
+  .s-color:hover {}
+
+  .op {
+  }
+
+  .op:hover,
+  .op:focus {}
+
+  .op::placeholder {}
+
+  .op {}
+
+  .cart-margin {}
+  .hide-on-small-screen{
+    display: none;
+  }
+}
